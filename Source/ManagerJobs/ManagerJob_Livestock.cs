@@ -262,7 +262,7 @@ namespace FluffyManager
                     }
                 }
 
-                // default 
+                // default
                 else
                 {
                     if (Masters != MasterMode.Default) SetMaster(animal, Masters, Master, ref actionTaken);
@@ -373,7 +373,7 @@ namespace FluffyManager
             if (options.NullOrEmpty())
                 return null;
 
-            // if we currently have a master, our current master is a valid option, 
+            // if we currently have a master, our current master is a valid option,
             // and all the options have roughly equal amounts of pets following them, we don't need to take action
             if (master != null && options.Contains(master) && RoughlyEquallyDistributed(options))
                 return master;
@@ -506,54 +506,62 @@ namespace FluffyManager
 
             for (var i = 0; i < Utilities_Livestock.AgeSexArray.Length; i++)
                 foreach (var p in Trigger.pawnKind.GetTame(manager, Utilities_Livestock.AgeSexArray[i]))
+                {
+                    #if RIMWORLD15
+                    Area restrictedArea = p.playerSettings.AreaRestrictionInPawnCurrentMap;
+                    #else
+                    Area restrictedArea = p.playerSettings.AreaRestriction;
+                    #endif
+
                     // slaughter
                     if (SendToSlaughterArea &&
-                         manager.map.designationManager.DesignationOn(p, DesignationDefOf.Slaughter) != null)
+                        manager.map.designationManager.DesignationOn(p, DesignationDefOf.Slaughter) != null)
                     {
-                        actionTaken = p.playerSettings.AreaRestriction != SlaughterArea;
-                        p.playerSettings.AreaRestriction = SlaughterArea;
+                        actionTaken = restrictedArea != SlaughterArea;
+                        restrictedArea = SlaughterArea;
                     }
 
                     // milking
                     else if (SendToMilkingArea &&
-                              p.GetComp<CompMilkable>() != null &&
-                              p.GetComp<CompMilkable>().TicksTillHarvestable() < UpdateInterval.ticks)
+                             p.GetComp<CompMilkable>() != null &&
+                             p.GetComp<CompMilkable>().TicksTillHarvestable() < UpdateInterval.ticks)
                     {
-                        if (p.playerSettings.AreaRestriction != MilkArea)
+                        if (restrictedArea != MilkArea)
                         {
                             actionTaken = true;
-                            p.playerSettings.AreaRestriction = MilkArea;
+                            restrictedArea = MilkArea;
                         }
                     }
 
                     // shearing
                     else if (SendToShearingArea &&
-                              p.GetComp<CompShearable>() != null &&
-                              p.GetComp<CompShearable>().TicksTillHarvestable() < UpdateInterval.ticks)
+                             p.GetComp<CompShearable>() != null &&
+                             p.GetComp<CompShearable>().TicksTillHarvestable() < UpdateInterval.ticks)
                     {
-                        if (p.playerSettings.AreaRestriction != ShearArea)
+                        if (restrictedArea != ShearArea)
                         {
                             actionTaken = true;
-                            p.playerSettings.AreaRestriction = ShearArea;
+                            restrictedArea = ShearArea;
                         }
                     }
 
                     // training
                     else if (SendToTrainingArea && p.training.NextTrainableToTrain() != null)
                     {
-                        if (p.playerSettings.AreaRestriction != TrainingArea)
+                        if (restrictedArea != TrainingArea)
                         {
                             actionTaken = true;
-                            p.playerSettings.AreaRestriction = TrainingArea;
+                            restrictedArea = TrainingArea;
                         }
                     }
 
                     // all
-                    else if (RestrictToArea && p.playerSettings.AreaRestriction != RestrictArea[i])
+                    else if (RestrictToArea && restrictedArea != RestrictArea[i])
                     {
                         actionTaken = true;
-                        p.playerSettings.AreaRestriction = RestrictArea[i];
+                        restrictedArea = RestrictArea[i];
                     }
+                }
         }
 
         private void DoButcherJobs(ref bool actionTaken)
