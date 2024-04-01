@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{675CE9D5-460C-496A-A6A9-8D3873EDDE88}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColonyManager</RootNamespace>
+    <AssemblyName>ColonyManager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.2|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <DefineConstants>RIMWORLD12</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>/rimworld/1.2/Mods/ColonyManager/1.2/Assemblies</OutputPath>
+    <MainPath>/tmp/rimworld/1.2/Mods/ColonyManager/1.2/Assemblies</MainPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.3|AnyCPU' ">
+    <DefineConstants>RIMWORLD13</DefineConstants>
+    <OutputPath>/rimworld/1.3/Mods/ColonyManager/1.3/Assemblies</OutputPath>
+    <MainPath>/rimworld/1.2/Mods/ColonyManager/1.3/Assemblies</MainPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.4|AnyCPU' ">
+    <DefineConstants>RIMWORLD14</DefineConstants>
+    <OutputPath>/rimworld/1.4/Mods/ColonyManager/1.4/Assemblies</OutputPath>
+    <MainPath>/rimworld/1.2/Mods/ColonyManager/1.4/Assemblies</MainPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.5|AnyCPU' ">
+    <DefineConstants>RIMWORLD15</DefineConstants>
+    <OutputPath>/rimworld/1.5/Mods/ColonyManager/1.5/Assemblies</OutputPath>
+    <MainPath>/rimworld/1.2/Mods/ColonyManager/1.5/Assemblies</MainPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.2|AnyCPU' ">
+    <Reference Include="Assembly-CSharp, Version=1.2.7528.19748, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.2/RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.2/RimWorldLinux_Data/Managed/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.2/RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>/rimworld/1.2/Mods/Harmony/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.3|AnyCPU' ">
+    <Reference Include="Assembly-CSharp, Version=1.3.7967.28253, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.3/RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.3/RimWorldLinux_Data/Managed/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>/rimworld/1.3/RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>/rimworld/1.3/Mods/Harmony/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.4|AnyCPU' ">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>/rimworld/1.4/RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>/rimworld/1.4/RimWorldLinux_Data/Managed/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>/rimworld/1.4/RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>/rimworld/1.4/Mods/Harmony/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release v1.5|AnyCPU' ">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>/rimworld/1.5/RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>/rimworld/1.5/RimWorldLinux_Data/Managed/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>/rimworld/1.5/RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>/rimworld/1.3/Mods/Harmony/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Comps/CompProperties_ManagerStation.cs" />
+    <Compile Include="Comps/Comp_ManagerStation.cs" />
+    <Compile Include="Core/Alerts.cs" />
+    <Compile Include="Core/Controller.cs" />
+    <Compile Include="Core/JobStack.cs" />
+    <Compile Include="Core/Manager.cs" />
+    <Compile Include="Core/Settings.cs" />
+    <Compile Include="GetBuildingCost.cs" />
+    <Compile Include="Helpers/Calendar.cs" />
+    <Compile Include="Helpers/Clock.cs" />
+    <Compile Include="Helpers/Color/HSV_Helper.cs" />
+    <Compile Include="Helpers/Constants.cs" />
+    <Compile Include="Helpers/Extensions/CompGlower_Extensions.cs" />
+    <Compile Include="Helpers/Extensions/Rect_Extensions.cs" />
+    <Compile Include="Helpers/Extensions/String_Extensions.cs" />
+    <Compile Include="Helpers/History.cs" />
+    <Compile Include="Helpers/Hunting/Utilities_Hunting.cs" />
+    <Compile Include="Helpers/I18n.cs" />
+    <Compile Include="Helpers/Livestock/Utilities_Livestock.cs" />
+    <Compile Include="Helpers/Logger.cs" />
+    <Compile Include="Helpers/Mining/Dialog_MiningDebugOptions.cs" />
+    <Compile Include="Helpers/Mining/Utilities_Mining.cs" />
+    <Compile Include="Helpers/Production/BillGiverTracker.cs" />
+    <Compile Include="Helpers/Production/Dialog_CreateJobsForIngredients.cs" />
+    <Compile Include="Helpers/Production/MainProductTracker.cs" />
+    <Compile Include="Helpers/Production/Utilities_Production.cs" />
+    <Compile Include="Helpers/Research/ResearchWorkers.cs" />
+    <Compile Include="Helpers/Resources.cs" />
+    <Compile Include="Helpers/Triplet.cs" />
+    <Compile Include="Helpers/UI/AreaAllowedGUI.cs" />
+    <Compile Include="Helpers/UI/StockpileGUI.cs" />
+    <Compile Include="Helpers/UI/UIThingFilterSearchable.cs" />
+    <Compile Include="Helpers/UI/Widgets_Labels.cs" />
+    <Compile Include="Helpers/UI/Widgets_Section.cs" />
+    <Compile Include="Helpers/UpdateInterval.cs" />
+    <Compile Include="Helpers/Utilities.cs" />
+    <Compile Include="JobDrivers/JobDriver_ManagingAtManagingStation.cs" />
+    <Compile Include="MainTabWindow/MainTabWindow_Manager.cs" />
+    <Compile Include="ManagerJobs/ManagerJob.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Foraging.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Forestry.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Hunting.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Livestock.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Mining.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Production.cs" />
+    <Compile Include="ManagerJobs/ManagerJob_Trading.cs" />
+    <Compile Include="ManagerTabs/ManagerTab.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Foraging.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Forestry.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Hunting.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_ImportExport.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Livestock.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Mining.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Overview.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Power.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Production.cs" />
+    <Compile Include="ManagerTabs/ManagerTab_Trading.cs" />
+    <Compile Include="Things/Building_ManagerStation.cs" />
+    <Compile Include="Triggers/Trigger.cs" />
+    <Compile Include="Triggers/Trigger_PawnKind.cs" />
+    <Compile Include="Triggers/Trigger_Threshold.cs" />
+    <Compile Include="Windows/Window_BillGiverDetails.cs" />
+    <Compile Include="Windows/Window_TriggerThresholdDetails.cs" />
+    <Compile Include="WorkGivers/WorkGiver_Manager.cs" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(OS)' != 'Windows_NT' ">
+    <PropertyGroup>
+      <FilesSource>$(ProjectDir)..\ColonyManager</FilesSource>
+      <FilesDestination>$(OutputPath)..</FilesDestination>
+    </PropertyGroup>
+    <Exec Command="cp -rvf $(FilesSource)/* '$(FilesDestination)/../'" />
+    <Exec Command="cp '$(FilesSource)/../README.md' '$(FilesDestination)/../'" />
+    <Exec Command="mkdir -p '$(MainPath)'" />
+    <Exec Command="cp -vf $(OutputPath)* '$(MainPath)/'" />
+    <Exec Command="unix2dos '$(FilesDestination)/../README.md'" />
+  </Target>
+</Project>
