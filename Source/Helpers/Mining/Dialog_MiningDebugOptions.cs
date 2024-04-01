@@ -1,7 +1,11 @@
 ﻿// Dialog_MiningDebugOptions.cs
 // Copyright Karel Kroeze, 2018-2020
 
+using System;
 using System.Linq;
+#if RIMWORLD15
+using LudeonTK;
+#endif
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -17,6 +21,19 @@ namespace FluffyManager
             this.job = job;
         }
 
+        #if RIMWORLD12
+        protected void DebugToolMap(string label, Action toolAction, bool highlight)
+        {
+            DebugToolMap_NewTmp(label, toolAction, highlight);
+        }
+
+        protected bool DebugAction(string label, Action action, bool highlight)
+        {
+            return DebugAction_NewTmp(label, action, highlight);
+        }
+        #endif
+
+#if !RIMWORLD15
         protected override void DoListingItems()
         {
             DebugToolMap( "IsValidMiningTarget", delegate
@@ -121,5 +138,6 @@ namespace FluffyManager
                 }, false
             );
         }
+#endif
     }
 }

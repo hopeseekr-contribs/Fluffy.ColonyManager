@@ -144,11 +144,21 @@ namespace FluffyManager
             if ( _glowDirty )
             {
                 // Update glow grid
+                #if RIMWORLD15
+                Map.glowGrid.DirtyCache(Position);
+                Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.GroundGlow);
+                #else
                 Map.glowGrid.MarkGlowGridDirty( Position );
+                #endif
 
                 // the following two should not be necesarry, but for some reason do seem to be.
+                #if RIMWORLD15
+                Map.mapDrawer.MapMeshDirty( Position, MapMeshFlagDefOf.GroundGlow );
+                Map.mapDrawer.MapMeshDirty( Position, MapMeshFlagDefOf.Things );
+                #else
                 Map.mapDrawer.MapMeshDirty( Position, MapMeshFlag.GroundGlow );
                 Map.mapDrawer.MapMeshDirty( Position, MapMeshFlag.Things );
+                #endif
 
                 _glowDirty = false;
             }

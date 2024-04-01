@@ -354,10 +354,17 @@ namespace FluffyManager
 
             // exploding animals
             rowRect.y += ListEntryHeight;
+            #if RIMWORLD15
+            var exploding = animals
+                .Where(a => a.RaceProps.deathAction.workerClass == typeof(DeathActionWorker_SmallExplosion)
+                            || a.RaceProps.deathAction.workerClass == typeof(DeathActionWorker_BigExplosion))
+                .ToList();
+            #else
             var exploding = animals
                 .Where(a => a.RaceProps.deathActionWorkerClass == typeof(DeathActionWorker_SmallExplosion)
                             || a.RaceProps.deathActionWorkerClass == typeof(DeathActionWorker_BigExplosion))
                 .ToList();
+            #endif
             Utilities.DrawToggle(rowRect,
                 "FM.Hunting.Exploding".Translate().Italic(),
                 "FM.Hunting.Exploding.Tip".Translate(),

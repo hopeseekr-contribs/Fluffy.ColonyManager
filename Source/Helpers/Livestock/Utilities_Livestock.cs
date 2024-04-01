@@ -158,7 +158,7 @@ namespace FluffyManager
             if (pawn.workSettings.WorkIsActive(WorkTypeDefOf.Handling))
                 mode = mode | MasterMode.Trainers;
 
-            if (pawn.equipment.Primary?.def.IsMeleeWeapon ?? true) // no weapon = melee 
+            if (pawn.equipment.Primary?.def.IsMeleeWeapon ?? true) // no weapon = melee
                 mode = mode | MasterMode.Melee;
 
             if (pawn.equipment.Primary?.def.IsRangedWeapon ?? false)
@@ -401,7 +401,11 @@ namespace FluffyManager
 
         public static bool VisiblyPregnant(this Pawn pawn)
         {
+            #if RIMWORLD12 || RIMWORLD13
+            return false;
+            #else
             return pawn?.health.hediffSet.GetFirstHediff<Hediff_Pregnant>()?.Visible ?? false;
+            #endif
         }
 
         private static bool _milkable(this Pawn pawn)
